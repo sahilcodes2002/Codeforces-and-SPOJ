@@ -34,6 +34,8 @@
 // Time Limit: 1 sec.
 
 
+//1st way
+//O(sqrt(N) log log sqrt(N)),
 
 #include<bits/stdc++.h>
 vector<int> countPrimes(int N)
@@ -68,4 +70,36 @@ vector<int> countPrimes(int N)
     }
 
     return primeFactors;
+}
+
+
+//2nd way 
+
+/*
+   Time Complexity: O(Nlog(log(N))).
+   Space Complexity: O(N).
+
+   where 'N' is the given number.
+*/
+
+vector<int> countPrimes(int n)
+{
+    vector<bool> isPrime(n, true);
+    vector<int>ans;
+    // Counting prime numbers less than 'N'.
+    int count = 0;
+    for (int i = 2; i < n; i++)
+    {
+        if (isPrime[i] == true)
+        {
+            if (n % i == 0) {
+                ans.push_back(i);
+            }
+            for (int j = i * 2; j < n; j += i)
+            {
+                isPrime[j] = false;
+            }
+        }
+    }
+    return ans;
 }
