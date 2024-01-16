@@ -103,3 +103,26 @@ vector<int> countPrimes(int n)
     }
     return ans;
 }
+
+
+//3rd way 
+
+vector<int> countPrimes(int n)
+{
+    vector<bool> check(n+1,true);
+
+    vector<int> ans;
+
+    for(int i=2;i<=n;i++){
+        if(check[i]){
+            if(n%i==0){
+                ans.push_back(i);
+            }
+            for(int j=2*i;j<=n;j+=i){ //changes this ... marking the miltiples of all the primes so that we dont check for them on the way .
+                check[j]=false;
+            }
+        }
+    }
+    return ans;
+    
+}
