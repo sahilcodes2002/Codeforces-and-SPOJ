@@ -1,4 +1,6 @@
 //if the give number is prime or not .
+//sum of factors can also be solves as we are checking the divisibility for every number <= sqrt(n) , similarly getting the other factor by deviding .
+
 
 #include<bits/stdc++.h>
 
