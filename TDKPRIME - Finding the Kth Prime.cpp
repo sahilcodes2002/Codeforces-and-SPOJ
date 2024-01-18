@@ -36,47 +36,51 @@
 
 
 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
-
-
-const int N=86028121;
-bool isprime[N+1]; 
  
+const int n = 86028121;
+vector<bool> prime(n + 1, true);
 
-void sieve(){
-	memset(isprime, true, sizeof(isprime));
-	isprime[0]=false;
-	isprime[1]=false;
-	for(int i=2;i*i<=N;i++){
-		if(isprime[i]){
-			for(int j=i*i;j<=N;j+=i){
-				isprime[j]=false;
-			}
-		}
-	}
+ 
+void sieve() {
+    for (int i = 2; i*i <= n; i++) {
+        if (prime[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                prime[j] = false;
+            }
+        }
+    }
+	//this is to get 5000000th prime = 86028121
+    // int pp = 0;
+    // int limit=5000000;
+    // for (int i = 2; i <= n; i++) {
+    //     if (prime[i]) {
+    //         pp++;
+    //         if (pp  == limit) {
+    //             cout << i << endl;
+    //         }
+    //     }
+    // }
+    
 }
+ 
+int main() {
+    sieve();
+    vector<int> primes;
+    for(int i=2;i<=n;i++){
+    	if(prime[i]){
+    		primes.push_back(i);
+    	}
+    }
 
-
-int main(){
-
-	int t;
-	cin>>t;
-	sieve();
-
-	vector<int> primes;
-	for(int i=2;i<=N;i++){
-		if(isprime[i]){
-			primes.push_back(i);
-		}
-	}
-	while(t--){
-		int n;
-		cin>>n;
-		cout<<primes[n-1]<<endl;
-	}
-
-		
-	return 0;
-
+    int t;
+    cin>>t;
+    while(t--){
+    	int n;
+    	cin>>n;
+    	cout<<primes[n-1]<<endl;
+    }
+    return 0;
 }
