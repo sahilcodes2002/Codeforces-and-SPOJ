@@ -32,7 +32,7 @@
 
 
 
-
+//method-1
 
 #include <bits/stdc++.h>
 
@@ -96,4 +96,50 @@ int main(){
 		}
 		cout<<endl;
 	}
+}
+
+
+
+
+
+//method 2
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+ 
+bool isprime(int x){
+	if(x<2){
+		return false;
+	}
+	if(x==2){
+		return true;
+	}
+	if(x%2==0){
+		return false;
+	}
+	for(int i=3;i*i<=x;i++){
+		if(x%i==0){
+			return false;
+		}
+	}
+	return true;
+}
+
+int main(){
+	int t;
+	cin>>t;
+
+	while(t--){
+		int a,b;
+		cin>>a>>b;
+		for(int i=a;i<=b;i++){
+			if(isprime(i)){
+				cout<<i<<endl;
+			}
+		}
+		cout<<endl;
+	}
+	return 0;
 }
