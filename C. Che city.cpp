@@ -7,6 +7,7 @@
 // outputstandard output
 // This is a problem from the Russia High School Team Programming Contest 2013
 
+
 // In the center of Che city there is a pedestrian street, one of the most popular walking places for city residents. This street is very pleasant to walk, because along the street there are n
 //  funny monuments.
 
